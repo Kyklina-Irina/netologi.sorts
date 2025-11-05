@@ -28,7 +28,7 @@ public class AviaSouls {
                 result = addToArray(result, ticket);
             }
         }
-        Arrays.sort(result); // сортировка по цене (по умолчанию через Comparable)
+        Arrays.sort(result); // сортировка по цене (Comparable)
         return result;
     }
 

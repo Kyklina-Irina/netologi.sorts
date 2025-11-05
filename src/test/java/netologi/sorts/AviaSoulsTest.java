@@ -1,6 +1,7 @@
 package netologi.sorts;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AviaSoulsTest {
@@ -17,7 +18,7 @@ public class AviaSoulsTest {
     @Test
     public void testTicketTimeComparator() {
         Ticket t1 = new Ticket("LED", "MOW", 3000, 1000, 1130); // 90 мин
-        Ticket t2 = new Ticket("LED", "MOW", 2500, 900, 1020); // 80 мин
+        Ticket t2 = new Ticket("LED", "MOW", 2500, 900, 1020);   // 80 мин
         TicketTimeComparator comp = new TicketTimeComparator();
         assertTrue(comp.compare(t1, t2) > 0);
         assertTrue(comp.compare(t2, t1) < 0);
@@ -47,7 +48,7 @@ public class AviaSoulsTest {
         TicketTimeComparator comp = new TicketTimeComparator();
         Ticket[] result = manager.searchAndSortBy("LED", "MOW", comp);
         assertEquals(2, result.length);
-        assertEquals(90, result[0].getFlightDuration());
-        assertEquals(120, result[1].getFlightDuration());
+        assertEquals(90, result[0].getFlightDurationInMinutes());
+        assertEquals(120, result[1].getFlightDurationInMinutes());
     }
 }

@@ -37,8 +37,12 @@ public class Ticket implements Comparable<Ticket> {
         return timeTo;
     }
 
-    public int getFlightDuration() {
-        return timeTo - timeFrom;
+    private int toMinutes(int hhmm) {
+        return (hhmm / 100) * 60 + (hhmm % 100);
+    }
+
+    public int getFlightDurationInMinutes() {
+        return toMinutes(timeTo) - toMinutes(timeFrom);
     }
 
     @Override
@@ -49,8 +53,8 @@ public class Ticket implements Comparable<Ticket> {
         return price == ticket.price &&
                 timeFrom == ticket.timeFrom &&
                 timeTo == ticket.timeTo &&
-                from.equals(ticket.from) &&
-                to.equals(ticket.to);
+                Objects.equals(from, ticket.from) &&
+                Objects.equals(to, ticket.to);
     }
 
     @Override
