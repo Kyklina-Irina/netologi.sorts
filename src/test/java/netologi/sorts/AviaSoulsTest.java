@@ -8,7 +8,7 @@ public class AviaSoulsTest {
     @Test
     public void testTicketCompareTo() {
         Ticket t1 = new Ticket("LED", "MOW", 3000, 1000, 1130);
-        Ticket t2 = new Ticket("LED", "MOW", 2500, 0900, 1030);
+        Ticket t2 = new Ticket("LED", "MOW", 2500, 900, 1030);
         assertTrue(t1.compareTo(t2) > 0);
         assertTrue(t2.compareTo(t1) < 0);
         assertEquals(0, t1.compareTo(t1));
@@ -17,7 +17,7 @@ public class AviaSoulsTest {
     @Test
     public void testTicketTimeComparator() {
         Ticket t1 = new Ticket("LED", "MOW", 3000, 1000, 1130); // 90 мин
-        Ticket t2 = new Ticket("LED", "MOW", 2500, 0900, 1020); // 80 мин
+        Ticket t2 = new Ticket("LED", "MOW", 2500, 900, 1020); // 80 мин
         TicketTimeComparator comp = new TicketTimeComparator();
         assertTrue(comp.compare(t1, t2) > 0);
         assertTrue(comp.compare(t2, t1) < 0);
